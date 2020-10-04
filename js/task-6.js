@@ -1,42 +1,25 @@
 /*
- Напиши скрипт, который бы при потере фокуса на инпуте, проверял его содержимое на правильное количество символов.
- Сколько символов должно быть в инпуте, указывается в его атрибуте data-length.
-Если введено подходящее количество, то border инпута становится зеленым, если неправильное - красным.
+Напиши скрипт, который бы при потере фокуса на инпуте,
+проверял его содержимое на правильное количество символов.
+Сколько символов должно быть в инпуте, указывается в его атрибуте data-length.
+Если введено подходящее количество, то border инпута становится зеленым, 
+если неправильное - красным.
 Для добавления стилей, используй CSS-классы valid и invalid.
  */
 
-const refs = {
-  openModalBtn: document.querySelector('[data-action="open-modal"]'),
-  closeModalBtn: document.querySelector('[data-action="close-modal"]'),
-  backdrop: document.querySelector('.js-backdrop'),
-};
+const validInputEl = document.querySelector("#validation-input");
 
-refs.openModalBtn.addEventListener('click', onOpenModal);
-refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackdropClick);
+validInputEl.addEventListener("blur", onInputValueCheck);
 
-function onOpenModal() {
-  window.addEventListener('keydown', onEscKeyPress);
-  document.body.classList.add('show-modal');
-}
-
-function onCloseModal() {
-  window.removeEventListener('keydown', onEscKeyPress);
-  document.body.classList.remove('show-modal');
-}
-
-function onBackdropClick(event) {
-  if (event.currentTarget === event.target) {
-    console.log('Кликнули именно в бекдроп!!!!');
-    onCloseModal();
-  }
-}
-
-function onEscKeyPress(event) {
-  const ESC_KEY_CODE = 'Escape';
-  const isEscKey = event.code === ESC_KEY_CODE;
-
-  if (isEscKey) {
-    onCloseModal();
+function onInputValueCheck(event) {
+  if (
+    event.currentTarget.getAttribute("data-length") >
+    event.currentTarget.value.length
+  ) {
+    validInputEl.classList.add("invalid");
+    validInputEl.classList.remove("valid");
+  } else {
+    validInputEl.classList.add("valid");
+    validInputEl.classList.remove("invalid");
   }
 }
