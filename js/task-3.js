@@ -45,11 +45,13 @@ const images = [
 //   '<a href="" class="title__link">Это ссылка)</a>',
 // );
 
-const listGallery = document.querySelector("li");
-listGallery.classList.add('gallery_photo');
 
-listGallery.insertAdjacentHTML(
-  "beforeend",
-  `<li><img src="${images.url} alt="${images.alt}"></li>`
-);
-console.log(listGallery);
+
+const galleryEl = document.querySelector("#gallery");
+
+images.forEach((image) => {
+  galleryEl.insertAdjacentHTML(
+    "beforeEnd",
+    `<li class="list"><img src="${image.url}" class="image" alt="${image.alt}"></li>`
+  );
+});

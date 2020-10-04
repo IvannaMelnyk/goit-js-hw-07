@@ -26,11 +26,27 @@ input {
 }
 
 /* задача 3 */
-#gallery__photo {
-  display: flex;
-  flex-wrap: nowrap;
-  text-align: center;
+.image {
+  width: 300px;
+  height: 200px;
+  margin-right: 30px;
+  background-color: grey;
 }
+.list {
+  text-decoration: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
 
 /* задача 6 */
 #validation-input {
