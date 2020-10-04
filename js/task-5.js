@@ -1,25 +1,20 @@
 /*
- Напиши скрипт который, при наборе текста в инпуте input#name-input (событие input), 
+ Напиши скрипт который, при наборе текста в инпуте
+ input#name-input (событие input),
  подставляет его текущее значение в span#name-output.
-  Если инпут пустой, в спане должна отображаться строка 'незнакомец'.
+Если инпут пустой, в спане должна отображаться строка 'незнакомец'.
  */
 
-const boxRef = document.querySelector('.js-box');
+const inputEl = document.querySelector("#name-input");
+const nameOutputEl = document.querySelector("#name-output");
 
-// boxRef.addEventListener('mouseover', onMouseEnter);
-// boxRef.addEventListener('mouseout', onMouseLeave);
-// boxRef.addEventListener('mousemove', onMouseMove);
+inputEl.addEventListener("input", onNameOutput);
 
-function onMouseEnter(event) {
-  const box = event.currentTarget;
-  box.classList.add('box--active');
+function onNameOutput(event) {
+  if (event.currentTarget.value !== ``) {
+    nameOutputEl.textContent = event.currentTarget.value;
+  } else {
+    nameOutputEl.textContent = "незнакомец";
+  }
 }
 
-function onMouseLeave(event) {
-  const box = event.currentTarget;
-  box.classList.remove('box--active');
-}
-
-function onMouseMove(event) {
-  console.log(event);
-}
