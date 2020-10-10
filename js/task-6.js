@@ -7,6 +7,22 @@
 Для добавления стилей, используй CSS-классы valid и invalid.
  */
 
+// const input = document.querySelector("#validation-input");
+
+// input.addEventListener("blur", onInputValueCheck);
+// function onInputValueCheck(event) {
+//   const inputValidLength = Number(input.getAttribute("data-length"))
+//   const inputCheckLength = input.value.length
+//   if (
+//     inputValidLength === inputCheckLength) {
+//     input.classList.add("valid");
+//     input.classList.remove("invalid");
+//   } else {
+//     input.classList.add("invalid");
+//     input.classList.remove("valid");
+//   }
+// }
+
 const input = document.querySelector("#validation-input");
 
 input.addEventListener("blur", function () {
@@ -21,4 +37,3 @@ input.addEventListener("blur", function () {
     input.classList.remove("valid");
   }
 })
-
